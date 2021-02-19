@@ -34,7 +34,8 @@ public class FallingObject : MonoBehaviour
 		/// - "Player" 태그를 갖는 오브젝트와 겹쳤을 경우
 		if (collision.CompareTag("Player"))
 		{
-			PlayerCharacter playerCharacter = collision.gameObject.GetComponent<PlayerCharacter>();
+			PlayerCharacter playerCharacter = GameManager.gameManager.playerCharacter;
+				// collision.gameObject.GetComponent<PlayerCharacter>();
 
 			// 캐릭터의 배고픔 값을 변경합니다.
 			playerCharacter.ChangeHungryValue(
@@ -42,6 +43,8 @@ public class FallingObject : MonoBehaviour
 				m_ChangeHungryValue : 
 				-m_ChangeHungryValue);
 
+			// 겹친 이후 해당 오브젝트를 제거합니다.
+			Destroy(gameObject);
 		}
 
 	}
