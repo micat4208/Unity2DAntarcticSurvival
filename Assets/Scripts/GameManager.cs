@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
 	private PlayerCharacter _PlayerCharacterInstance;
 	public PlayerCharacter playerCharacter => _PlayerCharacterInstance;
 
+	// 게임 오버를 나타냅니다.
+	public bool isGameOver { get; set; }
+
 
 	private void Awake()
 	{

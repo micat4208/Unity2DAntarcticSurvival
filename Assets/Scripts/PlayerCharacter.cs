@@ -19,9 +19,6 @@ public class PlayerCharacter : MonoBehaviour
     // 배고픔 상태를 나타냅니다.
     public float hungry { get; private set; } = 50.0f;
 
-    // 캐릭터 사망을 나타냅니다.
-    public bool isDie { get; private set; }
-
 
     /*
     // 해당 컴포넌트가 생성된 후 처음으로 호출되는 메서드
@@ -138,12 +135,12 @@ public class PlayerCharacter : MonoBehaviour
     public void ChangeHungryValue(float value)
     {
         // 사망했다면 메서드 호출 종료
-        if (isDie) return;
+        if (GameManager.gameManager.isGameOver) return;
 
         hungry += value;
 
         if (hungry < 0.0f)
-            isDie = true;
+            GameManager.gameManager.isGameOver = true;
 
         hungry = Mathf.Clamp(hungry, 0.0f, 100.0f);
 
