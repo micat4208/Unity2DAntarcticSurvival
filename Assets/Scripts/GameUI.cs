@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class GameUI : MonoBehaviour
 	// UI 의 펭귄 이미지를 나타냅니다.
 	[Header("UI 펭귄 이미지")]
 	public RectTransform m_CurrentStateImage;
+
+	[Header("점수를 표시하는 텍스트")]
+	public Text m_ScoreText;
 
 	// GameOver Panel Prefab 을 나타냅니다.
 	public RectTransform m_GameOverPanelPrefab;
@@ -46,7 +50,7 @@ public class GameUI : MonoBehaviour
 			// 사망했다면 GameOver
 			CreateGameOverUI();
 
-
+		UpdateCurrentScore();
 	}
 
 	private void CreateGameOverUI()
@@ -114,6 +118,12 @@ public class GameUI : MonoBehaviour
 		StartCoroutine(Wait3Sec());
 	}
 
+	// 현재 점수를 갱신합니다.
+	private void UpdateCurrentScore()
+	{
+		m_ScoreText.text = 
+			$"현재 점수\n{GameManager.gameManager.currentScore.ToString("0.00")}";
+	}
 
 
 }

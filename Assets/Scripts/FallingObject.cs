@@ -43,6 +43,11 @@ public class FallingObject : MonoBehaviour
 				m_ChangeHungryValue : 
 				-m_ChangeHungryValue);
 
+			GameManager.gameManager.AddScore(
+				(FallingObjType == FallingObjectType.Fish) ?
+				m_ChangeHungryValue :
+				-m_ChangeHungryValue);
+
 			// 겹친 이후 해당 오브젝트를 제거합니다.
 			Destroy(gameObject);
 		}

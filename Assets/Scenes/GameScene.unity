@@ -236,6 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LifeGaugeBounds: {fileID: 985312996}
   m_CurrentStateImage: {fileID: 763184236}
+  m_ScoreText: {fileID: 828361393}
   m_GameOverPanelPrefab: {fileID: 8069373495384404818, guid: 783c97d637f32164a9be87414c16731b,
     type: 3}
 --- !u!1 &237379130
@@ -745,7 +746,7 @@ MonoBehaviour:
   - {fileID: -3302964570838277954, guid: 959001203f706ae48a1689c144cc323f, type: 3}
   - {fileID: 3452093646654746802, guid: 3e5ddfd9fee145d4c8a40b11383b1642, type: 3}
   - {fileID: -5198119685443670828, guid: 60fb570e2c7dbaa488c68c0c64d0a1dc, type: 3}
-  _FishDropPercentage: 1
+  _FishDropPercentage: 58.4
   m_MinDelay: 1
   m_MaxDelay: 0.03
   m_Delay: 0.1

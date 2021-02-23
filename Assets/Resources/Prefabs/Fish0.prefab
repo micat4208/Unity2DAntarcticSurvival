@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FallingObjType: 1
-  m_ChangeHungryValue: 8
+  m_ChangeHungryValue: 50
 --- !u!114 &88508272029583753
 MonoBehaviour:
   m_ObjectHideFlags: 0

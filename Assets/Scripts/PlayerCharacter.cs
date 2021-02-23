@@ -140,7 +140,12 @@ public class PlayerCharacter : MonoBehaviour
         hungry += value;
 
         if (hungry < 0.0f)
+        {
             GameManager.gameManager.isGameOver = true;
+
+            // 최고 점수 갱신 시도
+            GameManager.gameManager.TryUpdateBestScore();
+        }
 
         hungry = Mathf.Clamp(hungry, 0.0f, 100.0f);
 

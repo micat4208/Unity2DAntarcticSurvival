@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FallingObjType: 1
-  m_ChangeHungryValue: 6.3
+  m_ChangeHungryValue: 50
 --- !u!61 &6437634322883934389
 BoxCollider2D:
   m_ObjectHideFlags: 0
