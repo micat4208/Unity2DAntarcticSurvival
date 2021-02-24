@@ -33,4 +33,9 @@ public struct BestDataInfo
 
 		this.bestScore = bestScore;
 	}
+
+	public string ToDateString() =>
+		empty ? "" : $"{year} {month} {day} - {hour}:{minute}:{second}";
+
+
 }

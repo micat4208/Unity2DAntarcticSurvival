@@ -6,6 +6,10 @@ using UnityEngine;
 // 컴포넌트가 됩니다.
 public class PlayerCharacter : MonoBehaviour
 {
+    [Header("안드로이드에서 사용될 방향 입력 오브젝트")]
+    public AndroidMoveInput m_LeftMoveInput;
+    public AndroidMoveInput m_RightMoveInput;
+
     // 플레이어 캐릭터를 이동시킬 때 적용될 속력입니다.
     [Header("플레이어 캐릭터 이동 속력")]
     /// - Header 애트리뷰트 : 인스펙터에 다음에 오는 문자열을 해당 속성 상단에 노출시킵니다.
@@ -74,6 +78,12 @@ public class PlayerCharacter : MonoBehaviour
     {
         // 플레이어 캐릭터 설정
         GameManager.gameManager.SetPlayerCharacter(this);
+
+#if UNITY_ANDROID
+#else
+        m_LeftMoveInput.gameObject.SetActive(false);
+        m_RightMoveInput.gameObject.SetActive(false);
+#endif
     }
 
     private void Update()
@@ -107,8 +117,15 @@ public class PlayerCharacter : MonoBehaviour
         //else if (Input.GetKey(KeyCode.RightArrow))
         //    transform.Translate(Vector2.right * Time.deltaTime, Space.World);
 
+#if UNITY_ANDROID
+        _Direction.x = 0.0f;
+        if      (m_LeftMoveInput.isInput)   _Direction.x += -1.0f;
+        else if (m_RightMoveInput.isInput)  _Direction.x += 1.0f;
+#else
+
         // 이동 방향 설정
         _Direction.x = Input.GetAxisRaw("Horizontal");
+#endif
     }
 
     // 설정된 방향으로 이동시킵니다.
